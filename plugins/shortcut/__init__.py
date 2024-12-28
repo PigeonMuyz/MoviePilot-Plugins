@@ -16,17 +16,17 @@ from app.schemas import MediaType
 
 class ShortCut(_PluginBase):
     # 插件名称
-    plugin_name = "快捷指令"
+    plugin_name = "快捷指令（魔改版）"
     # 插件描述
     plugin_desc = "IOS快捷指令，快速选片添加订阅"
     # 插件图标
-    plugin_icon = "https://raw.githubusercontent.com/honue/MoviePilot-Plugins/main/icons/shortcut.jpg"
+    plugin_icon = "https://raw.githubusercontent.com/PigeonMuyz/MoviePilot-Plugins/main/icons/shortcut.jpg"
     # 插件版本
-    plugin_version = "1.5"
+    plugin_version = "1.0"
     # 插件作者
-    plugin_author = "honue"
+    plugin_author = "PigeonMuyz"
     # 作者主页
-    author_url = "https://github.com/honue"
+    author_url = "https://github.com/PigeonMuyz"
     # 插件配置项ID前缀
     plugin_config_prefix = "ShortCut_"
     # 加载顺序
@@ -47,7 +47,8 @@ class ShortCut(_PluginBase):
 
     def init_plugin(self, config: dict = None):
         self._enable = config.get("enable") if config.get("enable") else False
-        self._plugin_key = config.get("plugin_key") if config.get("plugin_key") else settings.API_TOKEN
+        self._plugin_key = settings.API_TOKEN
+
         self._num = int(config.get("num")) if config.get("num") else 3
 
         self.downloadchain = DownloadChain()
